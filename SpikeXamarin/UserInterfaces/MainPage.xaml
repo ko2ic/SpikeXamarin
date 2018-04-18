@@ -5,9 +5,9 @@
             x:Class="SpikeXamarin.UserInterfaces.MainPage">
 
      <TabbedPage.Children>
-        <NavigationPage Title="MyPage" Icon="icon.png">
+        <NavigationPage Title="FirstPage" Icon="icon.png">
             <x:Arguments>
-                <local:MyPage />
+                <local:FirstPage />
             </x:Arguments>
         </NavigationPage>
 

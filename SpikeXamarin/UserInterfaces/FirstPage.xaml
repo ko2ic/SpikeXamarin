@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:SpikeXamarin.ViewModels"
+    xmlns:cell="clr-namespace:SpikeXamarin.UserInterfaces.Cell"
+    x:Class="SpikeXamarin.UserInterfaces.FirstPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModel:FirstViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <!--カスタムセルをムセルをコードで書いた場合
+        <ListView x:Name="listView" ItemsSource="{Binding}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                  <cell:MyCell Name="{Binding Name}" Stars="{Binding Stars}"/>                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        <ListView
+            x:Name="listView"
+            ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            Padding="32,4,32,4">
+                            <Label
+                                Style="{DynamicResource TitleStyle}"
+                                VerticalOptions="Center"
+                                Text="{Binding Name}" />
+                            <Label
+                                Style="{DynamicResource TitleStyle}"
+                                TextColor="Navy"
+                                VerticalOptions="Center"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding Stars}"
+                                HorizontalTextAlignment="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

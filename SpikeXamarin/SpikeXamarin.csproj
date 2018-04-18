@@ -29,7 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="UserInterfaces\MyPage.xaml" />
+    <EmbeddedResource Include="UserInterfaces\FirstPage.xaml" />
     <EmbeddedResource Include="UserInterfaces\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -40,14 +40,19 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserInterfaces\MyPage.xaml.cs">
-      <DependentUpon>MyPage.xaml</DependentUpon>
+    <Compile Include="UserInterfaces\FirstPage.xaml.cs">
+      <DependentUpon>FirstPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterfaces\Cell\MyCell.cs" />
     <Compile Include="Domains\Entities\RepoEntity.cs" />
     <Compile Include="UserInterfaces\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="Domains\FirstDomain.cs" />
+    <Compile Include="Infrastructures\Repositories\FirstRepository.cs" />
+    <Compile Include="Infrastructures\Repositories\Http\FirstHttpClient.cs" />
+    <Compile Include="Domains\Dto\SearchResultDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -59,6 +64,9 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -68,6 +76,11 @@
     <Folder Include="UserInterfaces\Cell\" />
     <Folder Include="Domains\" />
     <Folder Include="Domains\Entities\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Infrastructures\" />
+    <Folder Include="Infrastructures\Repositories\" />
+    <Folder Include="Infrastructures\Repositories\Http\" />
+    <Folder Include="Domains\Dto\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.444934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.444934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
