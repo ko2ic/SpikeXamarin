@@ -7,9 +7,9 @@ namespace SpikeXamarin.Infrastructures.Repositories
 {
     public class FirstRepository
     {
-        public async Task<SearchResultDto> fetch()
+        public async Task<SearchResultDto> fetch(string freeword, int pageNo)
         {
-            return await new FirstHttpClient().fetch();
+            return await new FirstHttpClient().fetch(freeword, pageNo);
         }
     }
 }

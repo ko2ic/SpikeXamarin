@@ -24,10 +24,10 @@ namespace SpikeXamarin.Infrastructures.Repositories.Http
 
         }
 
-        public async Task<SearchResultDto> fetch()
+        public async Task<SearchResultDto> fetch(string freeword, int pageNo)
         {
             var parameters = new Dictionary<string, string>(){
-                {"q", "ko2"},{"page", "1"}
+                {"q", freeword},{"page", pageNo.ToString()}
             };
             var formUrl = new FormUrlEncodedContent(parameters);
             string query = await formUrl.ReadAsStringAsync();
@@ -53,6 +53,7 @@ namespace SpikeXamarin.Infrastructures.Repositories.Http
             {
                 System.Diagnostics.Debug.WriteLine(ex);
             }
+            return result;
         }
     }
 }

@@ -11,11 +11,11 @@ namespace SpikeXamarin.Domains
         {
         }
 
-        public async Task<SearchResultDto> fetch()
+        public async Task<SearchResultDto> fetch(string freeword, int pageNo)
         {
             // TODO ここはinterfaceを使うようにしたい
             var repository = new FirstRepository();
-            return await repository.fetch();
+            return await repository.fetch(freeword, pageNo);
         }
     }
 }
