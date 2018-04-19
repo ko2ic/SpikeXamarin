@@ -20,7 +20,7 @@ namespace SpikeXamarin.Infrastructures.Repositories.Http
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("User-Agent", "custom");
-            client.Timeout = TimeSpan.FromMilliseconds(3000);
+            client.Timeout = TimeSpan.FromMilliseconds(10000);
 
         }
 
@@ -34,18 +34,25 @@ namespace SpikeXamarin.Infrastructures.Repositories.Http
 
             SearchResultDto result = null;
 
-            var response = await client.GetAsync("https://api.github.com/search/repositories?" + query);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var content = await response.Content.ReadAsStringAsync();
-                result = JsonConvert.DeserializeObject<SearchResultDto>(content);
+                var response = await client.GetAsync("/search/repositories?" + query);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    result = JsonConvert.DeserializeObject<SearchResultDto>(content);
+                }
+                else
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    System.Diagnostics.Debug.WriteLine(content);
+                }
+                return result;
             }
-            else
+            catch (TaskCanceledException ex)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                System.Diagnostics.Debug.WriteLine(content);
+                System.Diagnostics.Debug.WriteLine(ex);
             }
-            return result;
         }
     }
 }
