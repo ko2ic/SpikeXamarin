@@ -16,7 +16,7 @@ namespace SpikeXamarin.iOS
 
             // Code for starting up the Xamarin Test Cloud Agent
 #if DEBUG
-			Xamarin.Calabash.Start();
+            Xamarin.Calabash.Start();
 #endif
 
             LoadApplication(new App());

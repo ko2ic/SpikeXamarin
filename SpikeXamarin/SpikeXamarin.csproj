@@ -34,6 +34,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInterfaces\SecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -53,6 +57,11 @@
     <Compile Include="Infrastructures\Repositories\FirstRepository.cs" />
     <Compile Include="Infrastructures\Repositories\Http\FirstHttpClient.cs" />
     <Compile Include="Domains\Dto\SearchResultDto.cs" />
+    <Compile Include="UserInterfaces\SecondPage.xaml.cs">
+      <DependentUpon>SecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SecondViewModel.cs" />
+    <Compile Include="UserInterfaces\IPlatformTransition.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

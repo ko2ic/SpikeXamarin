@@ -11,7 +11,13 @@
             </x:Arguments>
         </NavigationPage>
 
-         <ContentPage Title="Tab2">
+        <NavigationPage Title="SecondPage" Icon="icon.png">
+            <x:Arguments>
+                <local:SecondPage />
+            </x:Arguments>
+        </NavigationPage>
+        
+         <ContentPage Title="Tab3">
             <BoxView Color="Blue"/>
         </ContentPage>
 

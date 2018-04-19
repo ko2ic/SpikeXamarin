@@ -49,7 +49,6 @@ namespace SpikeXamarin.ViewModels
         {
             Items = new ObservableCollection<RepoEntity>();
             search = new Command(Search);
-            RefreshData("ko2", 1);
         }
 
         public void Search()
